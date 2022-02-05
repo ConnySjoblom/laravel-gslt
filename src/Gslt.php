@@ -20,7 +20,7 @@ class Gslt
             ->post('https://api.steampowered.com/IGameServersService/CreateAccount/v1/', [
                 "key" => config('gslt.steam.apikey'),
                 "appid" => $appId,
-                "memo" => $name
+                "memo" => $name,
             ]);
 
         if ($request->failed()) {
@@ -31,7 +31,7 @@ class Gslt
 
         return [
             "steamid" => $response->steamid,
-            'login_token' => $response->login_token
+            'login_token' => $response->login_token,
         ];
     }
 
@@ -45,7 +45,7 @@ class Gslt
         $request = Http::asForm()
             ->post('https://api.steampowered.com/IGameServersService/DeleteAccount/v1/', [
                 "key" => config('gslt.steam.apikey'),
-                "steamid" => $steamid
+                "steamid" => $steamid,
             ]);
 
         if ($request->failed()) {

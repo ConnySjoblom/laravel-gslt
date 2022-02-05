@@ -2,9 +2,9 @@
 
 namespace ConnySjoblom\Gslt\Tests;
 
+use ConnySjoblom\Gslt\GsltServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use ConnySjoblom\Gslt\GsltServiceProvider;
 
 class TestCase extends Orchestra
 {
