@@ -7,20 +7,20 @@ use Illuminate\Support\Facades\Http;
 class Gslt
 {
     /**
-     * @param int $appId
-     * @param string $name
+     * @param int $appId Steam App Id - https://developer.valvesoftware.com/wiki/Steam_Application_IDs
+     * @param string $memo Identifying memo for the GSLT List
      *
-     * @return array
+     * @return array<string, string> steamid and login_token returned for the new GSLT Key
      *
      * @throws GsltException
      */
-    public function get(int $appId, string $name): array
+    public function get(int $appId, string $memo): array
     {
         $request = Http::asForm()
             ->post('https://api.steampowered.com/IGameServersService/CreateAccount/v1/', [
                 "key" => config('gslt.steam.apikey'),
                 "appid" => $appId,
-                "memo" => $name,
+                "memo" => $memo,
             ]);
 
         if ($request->failed()) {
@@ -36,7 +36,7 @@ class Gslt
     }
 
     /**
-     * @param string $steamid
+     * @param string $steamid Steam ID of the GSLT Key
      *
      * @return bool
      */
