@@ -83,7 +83,7 @@ class Gslt
         $request = Http::asForm()
             ->get('https://api.steampowered.com/IGameServersService/QueryLoginToken/v1/', [
                 "key" => config('gslt.steam.apikey'),
-                "login_token" => $login_token
+                "login_token" => $login_token,
             ]);
 
         $response = json_decode($request->body())->response;
@@ -95,7 +95,7 @@ class Gslt
         return [
             'is_banned' => $response->is_banned,
             'expires' => $response->expires,
-            'steamid' => $response->steamid
+            'steamid' => $response->steamid,
         ];
     }
 }
