@@ -6,6 +6,6 @@ All notable changes to `laravel-gslt` will be documented in this file.
 
 Adds `reset()` and `status()` methods
 
-## 1.0 - 2022-02-06
+## 1.0.0 - 2022-02-06
 
 Initial release
