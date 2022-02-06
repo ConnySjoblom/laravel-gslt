@@ -23,13 +23,6 @@ You can install the package via composer:
 composer require connysjoblom/laravel-gslt
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="laravel-gslt-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
@@ -40,20 +33,18 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'steam' => [
+        'apikey' => env('STEAM_APIKEY')
+    ]
 ];
-```
-
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="laravel-gslt-views"
 ```
 
 ## Usage
 
 ```php
-$gslt = new ConnySjoblom\Gslt();
-echo $gslt->echoPhrase('Hello, ConnySjoblom!');
+Gslt::get(730, 'Testserver');
+
+Gslt::delete(12345678901234567890)
 ```
 
 ## Testing
